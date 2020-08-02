@@ -51,7 +51,9 @@ function recursiveFlatten(array) {
   array.forEach((child) => {
     if (Array.isArray(child)) {
       // Caso recursivo
-      // flattened = flattened.concat(recursiveFlatten(child))
+      // Concat
+        // flattened = flattened.concat(recursiveFlatten(child))
+      // Spread
       flattened = [...flattened, recursiveFlatten(child)]
     } else {
       // Caso base

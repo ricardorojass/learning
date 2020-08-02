@@ -36,3 +36,5 @@ harmonicSum(3); // 1 + 1/2 + 1/3 = 1.833333
 console.log(flatten([[1, 2, 3], [4, 5]])); // [1, 2, 3, 4, 5]
 console.log(flatten([[[1, [1.1]], 2, 3], [4, 5]])); // [1, 1.1, 2, 3, 4, 5]
 ```
+
+[File](flatten.js)
