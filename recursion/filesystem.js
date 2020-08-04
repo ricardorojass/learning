@@ -1,5 +1,6 @@
 // Filesystem
 // Print a representation of the following filesystem.
+const filesystem2 = { type: "file", name: "song.mp3" }
 const filesystem = {
   type: "folder",
   name: "root",
@@ -43,7 +44,6 @@ const filesystem = {
     }
   ]
 }
-
 // Pseudocodigo
 // Imprimir la propiedad name del objeto
 // Si el objeto tiene la propiedad 'files'
@@ -53,28 +53,19 @@ const filesystem = {
 // 2. Si el resultado debe tener espacios antes
 //    Agregar 4 espacios antes
 
-function getFilesystem(filesystem) {
-  // Casos Recursivo
-  if (filesystem.name === 'root') {
-    console.log(filesystem.name)
-  }
-  if (Object.keys(filesystem).includes('files')) {
-    let spaces = 0
-    filesystem.files.forEach(child => {
-      const isFolder = child.type === 'folder'
-      const isFile = child.type === 'file'
-      if (isFolder) {
-        spaces = 2
-      } else if (isFile) {
-        spaces = 4
-      }
-      console.log(`${' '.repeat(spaces)}${isFile ? '-' : ''}${child.name}`)
-      return getFilesystem(child)
+function printFileSystemRec(fs, spaces) {
+
+  if (fs.type === 'file') {
+    console.log(`${' '.repeat(spaces)}${fs.name}`)
+  } else {
+    console.log(`${' '.repeat(spaces)}${fs.name}`)
+    fs.files.forEach(child => {
+      printFileSystemRec(child, spaces + 2)
     })
   }
 }
 
-getFilesystem(filesystem)
+printFileSystemRec(filesystem, 0)
 
 // root
 //   Users
