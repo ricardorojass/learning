@@ -5,4 +5,4 @@
   - [] Description
 
   - [] Solution
-    - [Typescript](linkedlist)
+    - [Typescript](index.ts)
