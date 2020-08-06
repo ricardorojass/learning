@@ -2,7 +2,7 @@
   - [Linked Lists](#linked-lists)
 
 - ### Linked Lists
-  - [] Description
+  - [ ] Description:
 
-  - [] Solution
-    - [Typescript](index.ts)
+  - [ ] Solution:
+    - [ ] [Typescript](LinkedList/index.ts)
