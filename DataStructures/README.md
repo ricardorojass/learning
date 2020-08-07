@@ -12,3 +12,9 @@
 
   - [ ] Solution:
     - [ ] [Typescript](Queue/index.ts)
+
+- ### Stack
+  - [ ] Description:
+
+  - [ ] Solution:
+    - [ ] [Typescript](Stack/stack.ts)
