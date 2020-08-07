@@ -1,3 +1,9 @@
+// Las operaciones principales de una lista encadenada son:
+// * Insertar un valor en una posición (por defecto al final).
+// * Obtener un valor por posición.
+// * Recorrer las posiciones.
+// * Eliminar una posición.
+
 interface NodeType {
   data: string | number
   next?: NodeType
