@@ -6,3 +6,9 @@
 
   - [ ] Solution:
     - [ ] [Typescript](LinkedList/index.ts)
+
+- ### Queue
+  - [ ] Description:
+
+  - [ ] Solution:
+    - [ ] [Typescript](Queue/index.ts)
