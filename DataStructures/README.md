@@ -18,3 +18,9 @@
 
   - [ ] Solution:
     - [ ] [Typescript](Stack/stack.ts)
+
+- ### Binary Tree
+  - [ ] Description:
+
+  - [ ] Solution:
+    - [ ] [Typescript](BinaryTree/binaryTree.ts)
