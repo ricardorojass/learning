@@ -2,22 +2,70 @@
 // Remover un nodo
 // Recorrer el árbol
 
-interface MyNodeInterface<T> {
-  data: T,
-  left: MyNodeInterface<T>
-  right: MyNodeInterface<T>
-}
-
 class MyNode<T> {
-  data: T
-  left: MyNodeInterface<T>
-  right: MyNodeInterface<T>
+  value: T
+  left: MyNode<T>
+  right: MyNode<T>
 
-  constructor(data: T, left = null, right = null) {
-    this.data = data
+  constructor(value: T, left: MyNode<T> = null, right: MyNode<T> = null) {
+    this.value = value
     this.left = left
     this.right = right
   }
+
+  addNode(node: MyNode<T>): void {
+    if (node.value < this.value) {
+      if (this.left === null) {
+        this.left = node
+      } else {
+        this.left.addNode(node)
+      }
+    } else if (node.value > this.value) {
+      if (this.right === null) {
+        this.right = node
+      } else {
+        this.right.addNode(node)
+      }
+    }
+  }
+
+  visit(): void {
+    if (this.left !== null) {
+      this.left.visit()
+    }
+    if (this.right !== null) {
+      this.right.visit()
+    }
+  }
+
+  search(val: T): any {
+    if (this.value === val) {
+      return this
+    } else if (val < this.value && this.left !== null) {
+      return this.left.search(val)
+    } else if (val > this.value && this.right !== null) {
+      return this.right.search(val)
+    }
+    return null
+  }
+
+  // contains(value: T): boolean {
+  //   if (value === this.data) {
+  //     return true
+  //   } else if (value < this.data) {
+  //     if (this.left === null) {
+  //       return false
+  //     } else {
+  //       return this.left.contains(value)
+  //     }
+  //   } else {
+  //     if (this.right === null) {
+  //       return false
+  //     } else {
+  //       return this.right.contains(value)
+  //     }
+  //   }
+  // }
 }
 
 class BST<T> {
@@ -26,80 +74,39 @@ class BST<T> {
     this.root = null
   }
 
-  add(value: T): void {
-    const node = this.root
-    if (node === null) {
-      this.root = new MyNode<T>(value)
-      return
+  addValue(value: T) {
+    const node = new MyNode<T>(value)
+    if (this.root === null) {
+      this.root = node
     } else {
-      const searchTree = function(node: MyNodeInterface<T>) {
-        if (value <= node.data) {
-          if (node.left === null) {
-            node.left = new MyNode<T>(value)
-            return
-          } else {
-            return searchTree(node.left)
-          }
-        } else if (value > node.data) {
-          if (node.right === null) {
-            node.right = new MyNode<T>(value)
-            return
-          } else {
-            return searchTree(node.right)
-          }
-        } else {
-          return null
-        }
-      }
-      return searchTree(node)
+      this.root.addNode(node)
     }
   }
 
-  contains(value: T): boolean {
-    let current = this.root
-    while (current) {
-      if (value === current.data) {
-        return true
-      }
-      if (value < current.data) {
-        current = current.left
-      } else {
-        current = current.right
-      }
-    }
-    return false
+  traverse() {
+    this.root.visit()
   }
 
-  remove(value: T): void {
-    const node = this.root
-    if (value === node.data) {
-
-    }
+  search(val) {
+    return this.root.search(val)
   }
-
 }
 
-
 const bst = new BST<number>()
-bst.add(10)
-bst.add(15)
-bst.add(5)
-bst.add(8)
+for (let i = 0; i < 10; i++) {
+  bst.addValue(Math.floor(Math.random() * 5))
+}
+bst.traverse()
+
+// const node = new MyNode<number>(10)
 
 console.log(
-  bst
+  JSON.stringify(bst)
 )
 
 console.log(
-  bst.contains(15)
+  bst.search(1)
 )
 
-console.log(
-  // node.remove(1)
-)
-
-console.log(
-
-)
 
 
