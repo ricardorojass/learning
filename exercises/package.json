@@ -1,0 +1,30 @@
+{
+  "name": "algoritmos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ricardorojass/algoritmos.git"
+  },
+  "author": "Ricardo Rojas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ricardorojass/algoritmos/issues"
+  },
+  "homepage": "https://github.com/ricardorojass/algoritmos#readme",
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/jest": "^26.0.9",
+    "jest": "^26.3.0",
+    "ts-jest": "^26.1.4"
+  },
+  "dependencies": {
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  }
+}

@@ -2,7 +2,7 @@
 
 
 ## Exercises
-* [Recursion](recursion/README.md)
-* [Leetcode](Leetcode/README.md)
-* [Data Structures](DataStructures/README.md)
+* [Recursion](exercises/recursion/README.md)
+* [Leetcode](exercises/leetcode/README.md)
+* [Data Structures](exercises/dataStructures/README.md)
 

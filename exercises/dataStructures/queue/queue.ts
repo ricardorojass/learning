@@ -27,45 +27,42 @@ class MyNodeClass<T> {
 }
 
 class MyQueue<T> implements MyQueueInterface<T> {
-  private first: MyNodeInterface<T>
-  private last: MyNodeInterface<T>
-
+  // private first: MyNodeInterface<T>
+  // private last: MyNodeInterface<T>
+  private head: MyNodeInterface<T>
 
   queue(data: T): void {
-    const node = new MyNodeClass<T>(data)
-    if (this.last) {
-      this.last.next = node
-    }
-
-    this.last = node
-    if (!this.first) {
-      this.first = this.last
+    if (!this.head) {
+      this.head = new MyNodeClass<T>(data)
+    } else {
+      let node = this.head
+      while (node.next) {
+        node = node.next
+      }
+      node.next = new MyNodeClass<T>(data)
     }
   }
 
   dequeue(): T {
-    if (!this.first) {
-      throw new Error('No items in the Queue')
+    if (!this.head) {
+      return null
     }
-    const data: T = this.first.data
-    this.first = this.first.next
-    if (!this.first) {
-      this.last = null
-    }
-
-    return data
+    const head = this.head
+    this.head = this.head.next
+    return head.data
   }
 
   peek(): T {
-    if (!this.first) {
-      throw new Error('No items found')
+    if (!this.head) {
+      return null
     }
-    return this.first.data
+    return this.head.data
   }
 
+  // O(n)
   size(): number {
     let counter = 0
-    let item = this.first
+    let item = this.head
 
     while (item) {
       counter++
@@ -85,9 +82,9 @@ console.log(
   queue.peek() === 1
 )
 console.log(
-  queue.dequeue() === 1
+  queue.dequeue()
 )
 
 console.log(
-  queue.size() === 2
+  queue.size()
 )
