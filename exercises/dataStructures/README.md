@@ -5,22 +5,22 @@
   - [ ] Description:
 
   - [ ] Solution:
-    - [ ] [Typescript](LinkedList/index.ts)
+    - [ ] [Typescript](linkedList/index.ts)
 
 - ### Queue
   - [ ] Description:
 
   - [ ] Solution:
-    - [ ] [Typescript](Queue/index.ts)
+    - [ ] [Typescript](queue/index.ts)
 
 - ### Stack
   - [ ] Description:
 
   - [ ] Solution:
-    - [ ] [Typescript](Stack/stack.ts)
+    - [ ] [Typescript](stack/stack.ts)
 
 - ### Binary Tree
   - [ ] Description:
 
   - [ ] Solution:
-    - [ ] [Typescript](BinaryTree/binaryTree.ts)
+    - [ ] [Typescript](binaryTree/binaryTree.ts)
