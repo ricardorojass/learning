@@ -41,12 +41,11 @@ class BST<T> {
   }
 
   visitDFS(data, fn): void {
-    if (data === this.value) {
-      fn(data)
-    }
-    if (this.left) this.left.visitDFS(data, fn)
-    if (this.right) this.right.visitDFS(data, fn)
+    fn(data)
+    if (!this.left) this.left.visitDFS(data, fn)
+    if (!this.right) this.right.visitDFS(data, fn)
   }
+
 }
 
 const bst = new BST<number>(8)
@@ -58,8 +57,10 @@ bst.add(4)
 bst.add(7)
 bst.add(14)
 bst.add(13)
-bst.visitDFS(1, (v) => {
-  console.log(v)
+bst.visitDFS(2, (data) => {
+  if (data === 2) {
+    console.log(data)
+  }
 })
 
 console.log(
