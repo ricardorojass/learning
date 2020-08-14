@@ -145,17 +145,21 @@ class LinkedList implements LinkedListInterface {
     while (currentNode) {
       // Store next node
       // 15, 20, 2, 8
-      nextNode = currentNode.next // 20, 2, 8, null
+      nextNode = currentNode.next // 20, 2, 8
 
       currentNode.next = previousNode // null, 15, 2, 8
 
-      previousNode = currentNode // 15, 2, 8, null
-      currentNode = nextNode // 20, 2, 8, null
+      previousNode = currentNode // 15, 2, 8
+      currentNode = nextNode // 20, 2, 8
     }
 
 
     this.head = previousNode
     return this
+  }
+
+  middle() {
+    return this.valueAt(this.size() / 2)
   }
 }
 
@@ -167,6 +171,10 @@ list.addAt(3, 8)
 
 console.log(
   list.size()
+)
+
+console.log(
+  list.middle()
 )
 
 console.log(
