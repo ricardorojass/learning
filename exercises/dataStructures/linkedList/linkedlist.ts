@@ -137,6 +137,26 @@ class LinkedList implements LinkedListInterface {
     previous.next = null
   }
 
+  reverse(): LinkedList {
+    let currentNode = this.head
+    let previousNode = null
+    let nextNode = null
+
+    while (currentNode) {
+      // Store next node
+      // 15, 20, 2, 8
+      nextNode = currentNode.next // 20, 2, 8, null
+
+      currentNode.next = previousNode // null, 15, 2, 8
+
+      previousNode = currentNode // 15, 2, 8, null
+      currentNode = nextNode // 20, 2, 8, null
+    }
+
+
+    this.head = previousNode
+    return this
+  }
 }
 
 const list = new LinkedList()
@@ -150,20 +170,31 @@ console.log(
 )
 
 console.log(
-  list.valueAt(0).data === 15
+  list.valueAt(list.size() -1).data
 )
 
 console.log(
   list.valueAt(3).data === 8
 )
 
-console.log(
-  list.removeAt(0)
-)
+// console.log(
+//   list.removeAt(0)
+// )
 
 console.log(
   list.valueAt(0).data === 20
 )
+
+const reverseList = list.reverse()
+console.log(
+  JSON.stringify(reverseList)
+)
+
+
+console.log(
+  list.valueAt(list.size() - 1).data === 15
+)
+
 
 
 

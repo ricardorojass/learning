@@ -5,7 +5,7 @@
   - [ ] Description:
 
   - [ ] Solution:
-    - [ ] [Typescript](linkedList/index.ts)
+    - [ ] [Typescript](linkedList/linkedlist.ts)
 
 - ### Queue
   - [ ] Description:
