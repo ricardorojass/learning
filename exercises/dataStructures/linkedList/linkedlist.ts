@@ -159,6 +159,7 @@ class LinkedList implements LinkedListInterface {
   }
 
   middle() {
+    // si el length es par devolver el anterios sino devuelve el de la mitad
     return this.valueAt(this.size() / 2)
   }
 }
@@ -195,13 +196,16 @@ console.log(
 
 const reverseList = list.reverse()
 console.log(
-  JSON.stringify(reverseList)
+  reverseList
 )
 
 
 console.log(
-  list.valueAt(list.size() - 1).data === 15
+  list.valueAt(list.size() - 1).data
 )
+for (let i = 0; i< list.size(); i++) {
+  console.log(list.valueAt(i).data)
+}
 
 
 
