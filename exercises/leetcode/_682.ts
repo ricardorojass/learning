@@ -1,35 +1,39 @@
 function calPoints(ops: string[]): number {
   let stack = []
-  let sum = 0
 
   for (let i = 0; i < ops.length; i++) {
     const currentElement = ops[i]
 
+    // comparar con el ascii
     if (!isNaN(Number(currentElement))) {
       const numToSum = Number(currentElement)
-      sum += numToSum
       stack.push(numToSum)
     } else {
       if (currentElement === 'C') {
-        const lastElement: number | undefined = stack.pop()
-        sum -= lastElement ? lastElement : 0
+        stack.pop()
     }
 
     if (currentElement === 'D') {
-        const lastOperation: number = stack[stack.length - 1]
+        const lastOperation: number = stack.pop()
         const double: number = lastOperation * 2
-        sum += double
+        stack.push(lastOperation)
         stack.push(double)
     }
 
     if (currentElement === '+') {
-        const lastOperation: number = stack[stack.length - 1]
-        const beforeLastOperation: number = stack[stack.length - 2]
-        const sumOperations: number = lastOperation + beforeLastOperation
-        sum += sumOperations
+        const first: number = stack.pop()
+        const second: number = stack.pop()
+        const sumOperations: number = first + second
+        stack.push(second)
+        stack.push(first)
         stack.push(sumOperations)
     }
     }
+  }
+
+  let sum = 0
+  while (stack.length) {
+    sum += stack.pop()
   }
 
   return sum

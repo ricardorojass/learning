@@ -13,10 +13,9 @@ function isValid(s: string): boolean {
 
   for (let i = 0; i < s.length; i++) {
     let char = s[i]
-
     if (map[char]) { // '(', ']' ....
-      stack.push(map[char]) // [ '(' ]
-    } else {
+    stack.push(map[char]) // [ '(' ]
+  } else {
       if (char !== stack.pop()) {
         return false
       }
