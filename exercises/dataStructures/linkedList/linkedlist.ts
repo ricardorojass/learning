@@ -158,6 +158,7 @@ class LinkedList implements LinkedListInterface {
     return this
   }
 
+  // Pendiente por arreglar
   middle() {
     // si el length es par devolver el anterios sino devuelve el de la mitad
     return this.valueAt(this.size() / 2)
