@@ -9,14 +9,7 @@
 function oddCells(n: number, m: number, indices: number[][]): number {
   let count = 0
 
-  let matrix = []
-  // Initialize the matrix
-  for (let i = 0; i < n; i++) {
-    matrix[i] = []
-    for (let j = 0; j < m; j++) {
-      matrix[i][j] = 0
-    }
-  }
+  let matrix = Array.from({length: n}, () => Array.from({length: m}, () => 0))
 
   for (const [r, c] of indices) {
     // Update col
@@ -37,6 +30,6 @@ console.log(
   oddCells(2, 3, [[0, 1], [1, 1]])
 )
 
-// console.log(
-//   oddCells(2, 2, [[1,1],[0,0]])
-// )
+console.log(
+  oddCells(2, 2, [[1,1],[0,0]])
+)
