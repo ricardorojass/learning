@@ -89,13 +89,16 @@ class BST<T> {
   }
 
   // The following traverse method are Depth First Search
-  // visit the left branch, then the curren node, and finally the right
-  inOrderTraversal(data: T, fn): void {
-    const node = this.find(data)
+  // visit the left branch, then the current node, and finally the right
+  inOrderTraversal(fn: Function): void {
+    this.inOrderTraversalRec(this, fn)
+  }
+  
+  inOrderTraversalRec(node: BST<T>, fn: Function): void {
     if (node) {
-      if (!this.left) this.inOrderTraversal(node.left.value, fn)
-      this.visit(node, fn)
-      if (!this.right) this.inOrderTraversal(node.right.value, fn)
+      if (node.left) this.inOrderTraversalRec(node.left, fn)
+      fn(node.value)
+      if (node.right) this.inOrderTraversalRec(node.right, fn)
     }
   }
   // It visits the current node before its child nodes
@@ -141,10 +144,13 @@ bst.add(15)
 //     console.log(data)
 //   }
 // })
-
-bst.postOrderTraversal(10, (data) => {
-  console.log(data);
+let arr = []
+bst.inOrderTraversal((data) => {
+  arr.push(data)
 })
+
+console.log(arr);
+
 // console.log(
 //   bst.find(15)
 // )
