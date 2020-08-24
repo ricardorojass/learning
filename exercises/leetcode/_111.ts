@@ -52,24 +52,34 @@ const root4: TreeNode = {
 //               /  \
 //              15   7
 
+// function minDepth(root: TreeNode | null): number {
+//   // Caso base
+//   if (!root) return 0
+
+//   if (!root.left && !root.right) return 1
+
+//   // Casos recursivos
+//   const left = root.left ? minDepth(root.left) : Infinity
+//   const right = root.right ? minDepth(root.right) : Infinity
+
+//   if (left < right) {
+//     return left + 1
+//   } else {
+//     return right + 1
+//   }
+// }
+
 function minDepth(root: TreeNode | null): number {
   // Caso base
   if (!root) return 0
 
   if (!root.left && !root.right) return 1
-    
+
   // Casos recursivos
-  const left = minDepth(root.left)
-  const right = minDepth(root.right)
+  const left = root.left ? minDepth(root.left) : Infinity
+  const right = root.right ? minDepth(root.right) : Infinity
 
-  if (!left) return right + 1
-  if (!right) return left + 1
-
-  if (left < right) {
-    return left + 1
-  } else {
-    return right + 1
-  }
+  return Math.min(left, right) + 1
 }
 
 console.log(
