@@ -32,58 +32,57 @@ enum Direction {
 }
 
 class Robot {
-  energy
+  battery
+  finishPosition
   robotPosition
   walls: boolean[][]
   rewards: any
 
-  constructor(walls: boolean[][], rewardPos: any, position: Position) {
-    this.energy = 5
-    this.robotPosition = position
+  constructor(walls: boolean[][], rewardPos: any, start: Position, finish: Position) {
+    this.battery = 5
+    this.robotPosition = start
+    this.finishPosition = finish
     this.walls = walls
     this.rewards = rewardPos
   }
 
   move(direction: string) {
     const nextRobotPosition: Position = this.calculateNextPosition(direction, this.robotPosition)
+    nextRobotPosition
+    if (JSON.stringify(nextRobotPosition) === JSON.stringify(this.finishPosition)) {
+      throw new Error(`You are finished in position: ${JSON.stringify(this.finishPosition)}`)
+    }
     switch (direction) {
       case Direction.Up:
         if (this.isThereWall(direction, this.robotPosition)) {
-          console.log('Attention, there is a wall!');
+          throw new Error('Wrong movement')
         } else {
-          if (this.isThereReward(nextRobotPosition, this.rewards)) {
-            this.energy += 1
-          }
+          if (this.isThereReward(nextRobotPosition, this.rewards)) this.battery += 1
           this.robotPosition.x -= 1
         }
         break
       case "down":
         if (this.isThereWall(direction, this.robotPosition)) {
-          console.log('Attention, there is a wall!');
+          throw new Error('Wrong movement')
         } else {
-          if (this.isThereReward(nextRobotPosition, this.rewards)) {
-            this.energy += 1
-          }
+          if (this.isThereReward(nextRobotPosition, this.rewards)) this.battery += 1
           this.robotPosition.x += 1
         }
         break
       case "left":
         if (this.isThereWall(direction, this.robotPosition)) {
-          console.log('Attention, there is a wall!');
+          throw new Error('Wrong movement')
         } else {
-          if (this.isThereReward(nextRobotPosition, this.rewards)) {
-            this.energy += 1
-          }
+          if (this.isThereReward(nextRobotPosition, this.rewards)) this.battery += 1
           this.robotPosition.y -= 1
         }
         break
       default:
         if (this.isThereWall(direction, this.robotPosition)) {
-          console.log('Attention, there is a wall!');
+          throw new Error('Wrong movement')
         } else {
-          if (this.isThereReward(nextRobotPosition, this.rewards)) {
-            this.energy += 1
-          }
+
+          if (this.isThereReward(nextRobotPosition, this.rewards)) this.battery += 1
           this.robotPosition.y += 1
         }
         break
@@ -127,11 +126,11 @@ class Robot {
   isThereReward(nextRobotPosition: Position, rewardPositions: any): boolean {
     // iterar por las posiciones de los premios y verificar que la nueva
     // posicion del robot sea la del premio
-    // si es la del premio el robot debe aumentar su energia.
     for (let i = 0; i < rewardPositions.length; i++) {
-      const position = rewardPositions[i];
-      return JSON.stringify(position) === JSON.stringify(nextRobotPosition)
+      const position = rewardPositions[i]
+      if (JSON.stringify(position) === JSON.stringify(nextRobotPosition)) return true
     }
+    return false
   }
 
 }
@@ -148,19 +147,29 @@ function start() {
   ]
   const maze = new Maze(board)
   const start = findStarterPoint(maze.walls)
+  // Todo: Made this dinamically
+  const finish = { x: 1, y: 8 }
   // Todo: initialize reward
-  let rewardPositions = []
-  const firstRewardPosition = putObjectInMaze(maze.walls)
-  const secondRewardPosition = putObjectInMaze(maze.walls)
-  rewardPositions.push(firstRewardPosition, secondRewardPosition)
-  rewardPositions
-  const robot = new Robot(maze.walls, rewardPositions, start)
+  const rewardPositions = [ { x: 5, y: 2 }, { x: 4, y: 2 } ]
+  const robot = new Robot(maze.walls, rewardPositions, start, finish)
 
+  robot.move('right')
+  robot.move('right')
+  robot.move('up')
+  robot.move('up')
+  robot.move('left')
+  robot.move('up')
+  robot.move('up')
+  robot.move('right')
+  robot.move('right')
+  robot.move('right')
+  robot.move('right')
+  robot.move('right')
   robot.move('right')
   robot.move('right')
 
   console.log(robot.robotPosition)
-  console.log(robot.energy)
+  console.log(robot.battery)
 }
 
 start()
