@@ -11,6 +11,13 @@
   // inicio
   // meta
 
+// Todo create classes for this objects.
+// Premios
+  // posicion
+
+// Bombas
+  // posicion
+
 class Maze {
   walls: boolean[][]
 
@@ -31,26 +38,41 @@ enum Direction {
   Right = 'right'
 }
 
-class Robot {
-  battery
-  finishPosition
-  robotPosition
-  walls: boolean[][]
-  rewards: any
+interface ObstacleInterface {
+  x: number,
+  y: number
+}
 
-  constructor(walls: boolean[][], rewardPos: any, start: Position, finish: Position) {
+interface RobotInterface {
+  move(direction: string): void
+  calculateNextPosition(direction: string, robotPosition: Position): Position
+  isThereWall(direction: string, robotPosition: Position): boolean
+  isThereReward(nextRobotPosition: Position, rewards: ObstacleInterface[]): boolean
+  isThereBomb(nextRobotPosition: Position, bombs: ObstacleInterface[]): boolean
+}
+
+class Robot implements RobotInterface{
+  battery: number
+  finishPosition: Position
+  robotPosition: Position
+  walls: boolean[][]
+  rewards: ObstacleInterface[]
+  bombs: ObstacleInterface[]
+
+  constructor(walls: boolean[][], rewardPos: ObstacleInterface[], bombPos: ObstacleInterface[], start: Position, finish: Position) {
     this.battery = 5
     this.robotPosition = start
     this.finishPosition = finish
     this.walls = walls
     this.rewards = rewardPos
+    this.bombs = bombPos
   }
 
   move(direction: string) {
     const nextRobotPosition: Position = this.calculateNextPosition(direction, this.robotPosition)
-    nextRobotPosition
     if (JSON.stringify(nextRobotPosition) === JSON.stringify(this.finishPosition)) {
-      throw new Error(`You are finished in position: ${JSON.stringify(this.finishPosition)}`)
+      console.log(`You are finished in position: ${JSON.stringify(this.finishPosition)}`)
+      return
     }
     switch (direction) {
       case Direction.Up:
@@ -58,6 +80,7 @@ class Robot {
           throw new Error('Wrong movement')
         } else {
           if (this.isThereReward(nextRobotPosition, this.rewards)) this.battery += 1
+          if (this.isThereBomb(nextRobotPosition, this.bombs)) this.battery -= 1
           this.robotPosition.x -= 1
         }
         break
@@ -66,6 +89,7 @@ class Robot {
           throw new Error('Wrong movement')
         } else {
           if (this.isThereReward(nextRobotPosition, this.rewards)) this.battery += 1
+          if (this.isThereBomb(nextRobotPosition, this.bombs)) this.battery -= 1
           this.robotPosition.x += 1
         }
         break
@@ -74,6 +98,7 @@ class Robot {
           throw new Error('Wrong movement')
         } else {
           if (this.isThereReward(nextRobotPosition, this.rewards)) this.battery += 1
+          if (this.isThereBomb(nextRobotPosition, this.bombs)) this.battery -= 1
           this.robotPosition.y -= 1
         }
         break
@@ -83,6 +108,7 @@ class Robot {
         } else {
 
           if (this.isThereReward(nextRobotPosition, this.rewards)) this.battery += 1
+          if (this.isThereBomb(nextRobotPosition, this.bombs)) this.battery -= 1
           this.robotPosition.y += 1
         }
         break
@@ -123,11 +149,21 @@ class Robot {
     }
   }
 
-  isThereReward(nextRobotPosition: Position, rewardPositions: any): boolean {
+  isThereReward(nextRobotPosition: Position, rewardPositions: ObstacleInterface[]): boolean {
     // iterar por las posiciones de los premios y verificar que la nueva
     // posicion del robot sea la del premio
     for (let i = 0; i < rewardPositions.length; i++) {
       const position = rewardPositions[i]
+      if (JSON.stringify(position) === JSON.stringify(nextRobotPosition)) return true
+    }
+    return false
+  }
+
+  isThereBomb(nextRobotPosition: Position, bombPositions: ObstacleInterface[]): boolean {
+    // iterar por las posiciones de los premios y verificar que la nueva
+    // posicion del robot sea la del premio
+    for (let i = 0; i < bombPositions.length; i++) {
+      const position = bombPositions[i]
       if (JSON.stringify(position) === JSON.stringify(nextRobotPosition)) return true
     }
     return false
@@ -147,11 +183,11 @@ function start() {
   ]
   const maze = new Maze(board)
   const start = findStarterPoint(maze.walls)
-  // Todo: Made this dinamically
+  // Todo: Made finish position dinamically
   const finish = { x: 1, y: 8 }
-  // Todo: initialize reward
-  const rewardPositions = [ { x: 5, y: 2 }, { x: 4, y: 2 } ]
-  const robot = new Robot(maze.walls, rewardPositions, start, finish)
+  const rewardPositions: ObstacleInterface[] = [ { x: 5, y: 2 }, { x: 4, y: 2 } ]
+  const bombPositions = [ { x: 2, y: 1 }, { x: 1, y: 3 }, { x: 1, y: 5 } ]
+  const robot = new Robot(maze.walls, rewardPositions, bombPositions, start, finish)
 
   robot.move('right')
   robot.move('right')
@@ -200,17 +236,3 @@ function putObjectInMaze(walls) {
   }
   return position
 }
-
-// Premios
-  // posicion
-
-class Reward {
-  position: Position
-
-  constructor(position: Position) {
-    this.position = position
-  }
-}
-
-// Bombas
-  // posicion
