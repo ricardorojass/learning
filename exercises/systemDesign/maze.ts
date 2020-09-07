@@ -70,10 +70,17 @@ class Robot implements RobotInterface{
 
   move(direction: string) {
     const nextRobotPosition: Position = this.calculateNextPosition(direction, this.robotPosition)
-    if (JSON.stringify(nextRobotPosition) === JSON.stringify(this.finishPosition)) {
-      console.log(`You are finished in position: ${JSON.stringify(this.finishPosition)}`)
+
+    if (this.battery == 0) {
+      console.log(`Game over! Your battery percentage is: ${this.battery} %`)
       return
     }
+    // Validate if the robot is in the finish point
+    if (JSON.stringify(nextRobotPosition) === JSON.stringify(this.finishPosition)) {
+      console.log(`You are the winner! ${JSON.stringify(this.finishPosition)}`)
+      return
+    }
+
     switch (direction) {
       case Direction.Up:
         if (this.isThereWall(direction, this.robotPosition)) {
