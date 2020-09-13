@@ -72,6 +72,7 @@ class Robot implements RobotInterface{
     const nextRobotPosition: Position = this.calculateNextPosition(direction, this.robotPosition)
 
     if (this.battery == 0) {
+      // Refactorizar para separar la interfaz, idea, lanzar un error.
       console.log(`Game over! Your battery percentage is: ${this.battery} %`)
       return
     }
@@ -122,7 +123,7 @@ class Robot implements RobotInterface{
     }
   }
 
-  calculateNextPosition(direction: string, robotPosition: Position): Position {
+  private calculateNextPosition(direction: string, robotPosition: Position): Position {
     let nextPosition: Position
     switch (direction) {
       case Direction.Up:
@@ -188,6 +189,7 @@ function start() {
     [false, false, false, true, true, true, true, true],
     [true, true, true, true, true, true, true, true],
   ]
+  // Eliminar la clase maze, no se esta usando.
   const maze = new Maze(board)
   const start = findStarterPoint(maze.walls)
   // Todo: Made finish position dinamically
