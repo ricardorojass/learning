@@ -1,6 +1,12 @@
 # Data Structures
   - [Linked Lists](#linked-lists)
 
+- ### Bubble Sort
+  - [ ] Description:
+
+  - [ ] Solution:
+    - [ ] [Typescript](bubbleSort/exercise1.js)
+
 - ### Linked Lists
   - [ ] Description:
 

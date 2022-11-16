@@ -6,6 +6,7 @@
 |13|[Valid Parenthesis](https://leetcode.com/problems/roman-to-integer/)|[Solution](_13.ts) | [:grin:]() |Easy|String, Math|
 |20|[Valid Parenthesis](https://leetcode.com/problems/valid-parentheses/)|[Solution](_20.ts) | [:grin:]() |Easy|String, Stack|
 |21|[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)|[Solution](_21.ts) | [:grin:]() |Easy|Array, Linked List|
+|53|[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|[Solution](_53.ts) | [:grin:]() |Easy|Array, Sliding Window|
 |88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[Solution](_88.ts) | [:grin:]() |Easy|Array, Two pointers|
 |111|[Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)|[Solution](_111.ts) | [:grin:]() |Easy|Binary Tree|
 |112|[Path sum](https://leetcode.com/problems/path-sum/)|[Solution](_112.ts) | [:grin:]() |Easy|Binary Tree|
