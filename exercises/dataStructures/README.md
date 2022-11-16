@@ -5,7 +5,7 @@
   - [ ] Description:
 
   - [ ] Solution:
-    - [ ] [Typescript](bubbleSort/exercise1.js)
+    - [ ] [JavaScript](bubbleSort/exercise1.js)
 
 - ### Linked Lists
   - [ ] Description:
