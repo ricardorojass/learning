@@ -4,15 +4,12 @@ function bubbleSort(array) {
 
   while (!isSorted) {
     for (let i = 0; i < lastUnsorted; i++) {
-      console.log(`i: ${i} = ${array[i]}` );
-      console.log("lastUnsorted: ", lastUnsorted);
       isSorted = true;
       if (array[i] > array[i+1]) {
         swap(array, i, i + 1)
         isSorted = false;
       }
     }
-    console.log("rest lastUnsorted")
     lastUnsorted--;
   }
   return array
