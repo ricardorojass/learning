@@ -48,23 +48,22 @@ class LinkedList {
 
   // Remove duplicates
 
-  removeDups(n) {
-    let current = this.head;
-    const mySet = new Set()
+  removeDups() {
+    const set = new Set()
+
+    let currentNode = this.head;
     let previousNode;
-    let nextNode;
 
-    while (current) {
-      if (mySet.has(current.data)) {
-        nextNode = current.next;
-        current.next = previousNode;
 
-        previousNode = current;
+    while (currentNode) {
+      if (set.has(currentNode.data)) {
+        previousNode.next = currentNode.next;
+        this.size--;
       } else {
-        mySet.add(current.data);
-        previousNode = this.head;
+        set.add(currentNode.data);
+        previousNode = currentNode;
       }
-      current = current.next;
+      currentNode = currentNode.next;
     }
   }
 
@@ -84,9 +83,11 @@ const ll = new LinkedList();
 ll.insertFirst(100);
 ll.insertFirst(100);
 ll.insertFirst(200);
+ll.insertFirst(200);
 ll.insertFirst(300);
-// ll.insertLast(400);
-// ll.removeDups()
+ll.insertFirst(300);
+ll.insertLast(400);
+ll.removeDups()
 
 console.log(ll)
 
