@@ -74,17 +74,16 @@ class DLL {
   }
 
   deleteLast() {
-    // let val = this.head.value;
-    let last = this.head;
-    let prev = null;
-
-    while (last.next) {
-      last = last.next;
-      prev = last.prev;
+    let current = this.head;
+    let last = null;
+    while (current.next) {
+      current = current.next;
     }
-    last.next = null;
-    last.prev = prev;
-    return last;
+    const val = current.value;
+    last = this.find(current.prev.value)
+    last.next = null
+
+    return val;
   }
 
   find(val) {
