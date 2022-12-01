@@ -80,7 +80,7 @@ class DLL {
       current = current.next;
     }
     const val = current.value;
-    last = this.find(current.prev.value)
+    last = current.prev;
     last.next = null
 
     return val;
