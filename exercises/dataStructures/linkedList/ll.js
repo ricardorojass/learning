@@ -58,6 +58,22 @@ class LinkedList {
     this.size++;
   }
 
+  // Insert using recursion
+  insertRec(val, index) {
+    this.head = this.insertRecPrivate(val, index, this.head);
+  }
+
+  insertRecPrivate(val, index, node) {
+    if (index === 0) {
+      let temp = new Node(val, node);
+      this.size++;
+      return temp;
+    }
+    // console.log(`node.next = ${node.next.value}`);
+    node.next = this.insertRecPrivate(val, index-1 , node.next);
+    return node;
+  }
+
   removeFirst() {
     let val = this.head.value;
     this.head = this.head.next;
@@ -114,6 +130,22 @@ class LinkedList {
     return node;
   }
 
+  // Remove duplicates
+  removeDups() {
+    let node = this.head;
+
+    while (node.next) {
+      if (node.value === node.next.value) {
+        node.next = node.next.next;
+        this.size--;
+      } else {
+        node = node.next;
+      }
+    }
+    this.tail = node;
+    this.tail.next = null;
+  }
+
   display() {
     let temp = this.head;
 
@@ -122,6 +154,7 @@ class LinkedList {
       temp = temp.next;
     }
     console.log("END");
+    console.log('');
   }
 }
 
@@ -132,7 +165,11 @@ ll.insertFirst(2);
 ll.insertFirst(8);
 ll.insertFirst(17);
 ll.insertLast(99);
+ll.insertLast(99);
 ll.insertAt(100, 3);
-console.log(ll.removeAt(2))
+// ll.removeAt(2)
 ll.display()
-// console.log(ll);
+ll.insertRec(88, 2);
+ll.display()
+ll.removeDups();
+ll.display()
