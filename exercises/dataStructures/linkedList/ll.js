@@ -146,6 +146,25 @@ class LinkedList {
     this.tail.next = null;
   }
 
+  // Merge 2 sorted lists
+  merge(first, second) {
+    let f = first.head;
+    let s = second.head;
+
+    let ans = new LL();
+
+    while (f && s) {
+      if (f.value < s.value) {
+        ans.insertLast(f);
+        f = f.next;
+      } else {
+        ans.insertLast(s);
+        s = s.next;
+      }
+
+    }
+  }
+
   display() {
     let temp = this.head;
 
