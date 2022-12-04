@@ -147,22 +147,33 @@ class LinkedList {
   }
 
   // Merge 2 sorted lists
-  merge(first, second) {
+  static merge(first, second) {
     let f = first.head;
     let s = second.head;
 
-    let ans = new LL();
+    let ans = new LinkedList();
 
     while (f && s) {
       if (f.value < s.value) {
-        ans.insertLast(f);
+        ans.insertLast(f.value);
         f = f.next;
       } else {
-        ans.insertLast(s);
+        ans.insertLast(s.value);
         s = s.next;
       }
-
     }
+
+    while (f) {
+      ans.insertLast(f.value);
+      f = f.next;
+    }
+
+    while (s) {
+      ans.insertLast(s.value);
+      s = s.next;
+    }
+
+    return ans;
   }
 
   display() {
@@ -177,18 +188,33 @@ class LinkedList {
   }
 }
 
-let ll = new LinkedList();
+// let ll = new LinkedList();
 
-ll.insertFirst(3);
-ll.insertFirst(2);
-ll.insertFirst(8);
-ll.insertFirst(17);
-ll.insertLast(99);
-ll.insertLast(99);
-ll.insertAt(100, 3);
-// ll.removeAt(2)
-ll.display()
-ll.insertRec(88, 2);
-ll.display()
-ll.removeDups();
-ll.display()
+// ll.insertFirst(3);
+// ll.insertFirst(2);
+// ll.insertFirst(8);
+// ll.insertFirst(17);
+// ll.insertLast(99);
+// ll.insertLast(99);
+// ll.insertAt(100, 3);
+// // ll.removeAt(2)
+// ll.display()
+// ll.insertRec(88, 2);
+// ll.display()
+// ll.removeDups();
+// ll.display()
+
+let first = new LinkedList();
+let second = new LinkedList();
+
+first.insertLast(1);
+first.insertLast(3);
+first.insertLast(5);
+
+second.insertLast(1);
+second.insertLast(2);
+second.insertLast(9);
+second.insertLast(14);
+
+let ans = LinkedList.merge(first, second);
+ans.display();
