@@ -13,6 +13,7 @@
 |112|[Path sum](https://leetcode.com/problems/path-sum/)|[Solution](_112.ts) | [:grin:]() |Easy|Binary Tree|
 |141|[Linked list cycle](https://leetcode.com/problems/linked-list-cycle/)|[Solution](_141.js) | [:grin:]() |Easy|Linked List, Two pointers|
 |142|[Linked list cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|[Solution](_142.js) | [:grin:]() |Medium|Linked List, Two pointers|
+|202|[Happy Number](https://leetcode.com/problems/happy-number/)|[Solution](_202.js) | [:grin:]() |Easy|Linked List, Two pointers|
 |226|[Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)|[Solution](_226.ts) | [:grin:]() |Easy|Binary Tree|
 |258|[Add Digits](https://leetcode.com/problems/add-digits/)|[Solution](_258.ts) | [:grin:]() |Easy|Math|
 |299|[Bull and Cows](https://leetcode.com/problems/bulls-and-cows/)|[Solution](_299.ts) | [:grin:]() |Medium|Hash Table|
