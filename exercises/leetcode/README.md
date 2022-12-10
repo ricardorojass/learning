@@ -19,5 +19,6 @@
 |299|[Bull and Cows](https://leetcode.com/problems/bulls-and-cows/)|[Solution](_299.ts) | [:grin:]() |Medium|Hash Table|
 |682|[Baseball Game](https://leetcode.com/problems/baseball-game/)|[Solution](_682.ts) | [:grin:]() |Easy|String, Stack|
 |771|[Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/)|[Solution](_771.ts) | [:grin:]() |Easy|String|
+|876|[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|[Solution](_876.js) | [:grin:]() |Easy|Linked List, Two Pointers|
 |1252|[Cells with Odd Values in a Matrix](https://leetcode.com/problems/cells-with-odd-values-in-a-matrix/)|[Solution](_1252.ts) | [:grin:]() |Easy|Array|
 |1436|[Destination City](https://leetcode.com/problems/destination-city/)|[Solution](_1436.ts) | [:grin:]() |Easy|Array|
