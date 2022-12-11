@@ -1,3 +1,4 @@
+// Optimized with isSorted or noSwaps
 function bubbleSort(array) {
   let lastUnsorted = array.length - 1;
   let isSorted = false;

@@ -1,3 +1,7 @@
+/**
+ * @param {arr1, arr2}
+ * @return {arr}
+ */
 function merge(arr1, arr2) {
   let results = [];
   let i = 0;
