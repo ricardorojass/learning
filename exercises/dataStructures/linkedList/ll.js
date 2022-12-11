@@ -176,6 +176,117 @@ class LinkedList {
     return ans;
   }
 
+  // https://leetcode.com/problems/linked-list-cycle/
+  // Amazon and Microsoft
+  hasCycle(head) {
+    let fast = head;
+    let slow = head;
+
+    while (fast && fast.next) {
+      fast = fast.next.next;
+      slow = slow.next;
+      if (fast === slow) {
+        return true
+      }
+    }
+    return false;
+  }
+
+  // find length of the cycle
+  lengthCycle(head) {
+    let fast = head;
+    let slow = head;
+
+    while (fast && fast.next) {
+      fast = fast.next.next;
+      slow = slow.next;
+      if (fast === slow) {
+        // Calculate the length
+        let temp = slow;
+        let length = 0;
+        do {
+          temp = temp.next;
+          length++;
+        } while (temp != fast);
+
+        return length;
+      }
+    }
+    return 0;
+  }
+
+  // https://leetcode.com/problems/linked-list-cycle-ii/
+  detectCycle(head) {
+    let length = 0
+
+    let fast = head;
+    let slow = head;
+
+    while (fast && fast.next) {
+      fast = fast.next.next;
+      slow = slow.next;
+      if (fast === slow) {
+        length = this.lengthCycle(slow);
+        break;
+      }
+    }
+
+    if (!length) {
+      return null;
+    }
+
+    // find the start node
+    let f = head;
+    let s = head;
+
+    while (length > 0) {
+      s = s.next;
+      length--;
+    }
+
+    // keep moving both forward and they will meet the start node
+    while (f != s) {
+      f = f.next;
+      s = s.next;
+    }
+    return s;
+  }
+
+  // recursion reverse
+  reverse(node) {
+    if (node === this.tail) {
+      this.head = this.tail;
+      return;
+    }
+    reverse(node.next);
+    this.tail.next = node;
+    this.tail = node;
+    this.tail.next = null;
+  }
+
+  // in place reversal of linked list
+  // https://leetcode.com/problems/reverse-linked-list/
+  reverseInPlace() {
+    if (this.size < 2) {
+      return;
+    }
+
+    let current = this.head;
+    let prev = null;
+    let next = null;
+
+    while (current) {
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+      if (next !== null) {
+        next = next.next;
+      }
+    }
+    this.head = prev;
+  }
+
   display() {
     let temp = this.head;
 
@@ -204,17 +315,11 @@ class LinkedList {
 // ll.removeDups();
 // ll.display()
 
-let first = new LinkedList();
-let second = new LinkedList();
+let list = new LinkedList();
 
-first.insertLast(1);
-first.insertLast(3);
-first.insertLast(5);
-
-second.insertLast(1);
-second.insertLast(2);
-second.insertLast(9);
-second.insertLast(14);
-
-let ans = LinkedList.merge(first, second);
-ans.display();
+list.insertLast(5);
+list.insertLast(3);
+list.insertLast(1);
+list.display();
+list.reverseInPlace();
+list.display();
