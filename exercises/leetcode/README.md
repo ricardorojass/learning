@@ -18,6 +18,7 @@
 |202|[Happy Number](https://leetcode.com/problems/happy-number/)|[Solution](_202.js) | [:grin:]() |Easy|Linked List, Two pointers|
 |206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|[Solution](_206.js) | [:grin:]() |Easy|Linked List|
 |226|[Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)|[Solution](_226.ts) | [:grin:]() |Easy|Binary Tree|
+|234|[Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)|[Solution](_234.js) | [:grin:]() |Easy|Linked List, Two Pointers|
 |258|[Add Digits](https://leetcode.com/problems/add-digits/)|[Solution](_258.ts) | [:grin:]() |Easy|Math|
 |299|[Bull and Cows](https://leetcode.com/problems/bulls-and-cows/)|[Solution](_299.ts) | [:grin:]() |Medium|Hash Table|
 |682|[Baseball Game](https://leetcode.com/problems/baseball-game/)|[Solution](_682.ts) | [:grin:]() |Easy|String, Stack|

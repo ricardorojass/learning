@@ -11,7 +11,7 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-lengthCycle(head) {
+function lengthCycle(head) {
   let fast = head;
   let slow = head;
 
@@ -33,7 +33,7 @@ lengthCycle(head) {
   return 0;
 }
 
-detectCycle(head) {
+function detectCycle(head) {
   let length = 0
 
   let fast = head;
