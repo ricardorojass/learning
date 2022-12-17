@@ -6,6 +6,7 @@
 |13|[Valid Parenthesis](https://leetcode.com/problems/roman-to-integer/)|[Solution](_13.ts) | [:grin:]() |Easy|String, Math|
 |20|[Valid Parenthesis](https://leetcode.com/problems/valid-parentheses/)|[Solution](_20.ts) | [:grin:]() |Easy|String, Stack|
 |21|[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)|[Solution](_21.ts) | [:grin:]() |Easy|Array, Linked List|
+|25|[Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/)|[Solution](_25.js) | [:grin:]() |Hard|Linked List, Two Pointers|
 |53|[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|[Solution](_53.ts) | [:grin:]() |Easy|Array, Sliding Window|
 |83|[Remove duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)|[Solution](_83.js) | [:grin:]() |Easy|Array, Linked List|
 |88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[Solution](_88.ts) | [:grin:]() |Easy|Array, Two pointers|
