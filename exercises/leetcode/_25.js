@@ -43,10 +43,19 @@ class LL {
     if (k <= 1 || head === null) {
       return head;
     }
-    // skip the first left - 1 nodes
+
     let current = head;
     let prev = null;
     while (true) {
+      // check if there are at least k nodes left
+      let temp = current;
+      for (let i = 0; i < k; i++) {
+          if (temp === null) {
+              return head
+          }
+          temp = temp.next;
+      }
+
       let last = prev;
       let newEnd = current;
 
@@ -60,6 +69,7 @@ class LL {
           next = next.next;
         }
       }
+
 
       if (last !== null) {
         last.next = prev;
@@ -78,30 +88,6 @@ class LL {
 
     return head;
   };
-
-  // reverseKGroup(head, k) {
-  //   // Edge case: if k is 1 or the list is empty, return the list as-is
-  //   if (k === 1 || head === null) {
-  //     return head;
-  //   }
-
-  //   // Initialize variables for the linked list traversal
-  //   let current = head;
-  //   let previous = null;
-  //   let i = 0;
-
-  //   // Traverse the linked list
-  //   while (current !== null) {
-  //       // Reverse the nodes in the group
-  //       if (i % k === 0) {
-  //           previous = this.reverse(previous, current, k);
-  //       }
-  //       i++;
-  //       current = current.next;
-  //   }
-
-  //   return previous;
-  // }
 
 
   display() {
@@ -123,5 +109,4 @@ list.insertLast(3)
 list.insertLast(4)
 list.insertLast(5)
 list.display()
-list.reverseKGroup(list, 2)
-list.display()
+list.reverseKGroup(list, 3)
