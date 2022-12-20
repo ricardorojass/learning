@@ -398,6 +398,31 @@ class LinkedList {
     return this.head;
   }
 
+  rotateRight(k) {
+    if (k <= 0 || this.head === null || this.head.next === null) {
+      return this.head;
+    }
+
+    let last = this.head;
+    let length = 1;
+    while (last.next) {
+      last = last.next;
+      length++;
+    }
+
+    last.next = this.head;
+    const rotations = k % length;
+    const skip = length - rotations;
+
+    let newLast = this.head;
+    for (let i = 0; i < skip - 1; i++) {
+      newLast = newLast.next;
+    }
+
+    this.head = newLast.next;
+    newLast.next = null
+  };
+
   display() {
     let temp = this.head;
 
@@ -415,11 +440,5 @@ let list = new LinkedList();
 list.insertLast(1);
 list.insertLast(2);
 list.insertLast(3);
-list.insertLast(4);
-list.insertLast(5);
-list.insertLast(6);
-list.insertLast(7);
-list.insertLast(8);
-list.insertLast(9);
-list.reverseAlternateKGroup(3);
+list.rotateRight(2000000000);
 list.display();

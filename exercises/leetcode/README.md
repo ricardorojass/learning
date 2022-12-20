@@ -8,6 +8,7 @@
 |21|[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)|[Solution](_21.ts) | [:grin:]() |Easy|Array, Linked List|
 |25|[Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/)|[Solution](_25.js) | [:grin:]() |Hard|Linked List, Two Pointers|
 |53|[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|[Solution](_53.ts) | [:grin:]() |Easy|Array, Sliding Window|
+|65|[Rotate List](https://leetcode.com/problems/rotate-list/)|[Solution](_65.js) | [:grin:]() |Medium|Linked List, Two Pointers|
 |83|[Remove duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)|[Solution](_83.js) | [:grin:]() |Easy|Array, Linked List|
 |88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[Solution](_88.ts) | [:grin:]() |Easy|Array, Two pointers|
 |92|[Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)|[Solution](_92.js) | [:grin:]() |Medium|Linked List, Two pointers|
