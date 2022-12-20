@@ -287,11 +287,122 @@ class LinkedList {
     this.head = prev;
   }
 
+  // https://leetcode.com/problems/reverse-nodes-in-k-group/
+  reverseKGroup(k) {
+    if (k <= 1 || this.head === null) {
+      return this.head;
+    }
+    let current = this.head;
+    let prev = null;
+    while (true) {
+      // check if there are at least k nodes left
+      let temp = current;
+      for (let i = 0; i < k; i++) {
+          if (temp) {
+              temp = temp.next;
+          } else {
+            return this.head
+          }
+      }
+
+      let last = prev;
+      let newEnd = current;
+
+      // reverse between left and right
+      let next = null;
+      if (next === null) {
+        next = current.next;
+      }
+      for (let i = 0; current && i < k ; i++) {
+        current.next = prev;
+        prev = current;
+        current = next;
+        if (next) {
+          next = next.next;
+        }
+      }
+
+
+      if (last !== null) {
+        last.next = prev;
+      } else {
+        this.head = prev;
+      }
+
+      if (newEnd) {
+        newEnd.next = current;
+      }
+
+      if (current === null) {
+        break;
+      };
+
+      prev = newEnd;
+    }
+
+    return this.head;
+  }
+
+  reverseAlternateKGroup(k) {
+    if (k <= 1 || this.head === null) {
+      return this.head;
+    }
+    let current = this.head;
+    let prev = null;
+    while (current) {
+      // check if there are at least k nodes left
+      let temp = current;
+      for (let i = 0; i < k; i++) {
+          if (temp) {
+              temp = temp.next;
+          } else {
+            return this.head
+          }
+      }
+
+      let last = prev;
+      let newEnd = current;
+
+      // reverse between left and right
+      let next = null;
+      if (next === null) {
+        next = current.next;
+      }
+      for (let i = 0; current && i < k; i++) {
+        current.next = prev;
+        prev = current;
+        current = next;
+        if (next) {
+          next = next.next;
+        }
+      }
+
+
+      if (last !== null) {
+        last.next = prev;
+      } else {
+        this.head = prev;
+      }
+
+      if (newEnd) {
+        newEnd.next = current;
+      }
+
+      // skip the k nodes
+      for (let i = 0; current && i < k; i++) {
+        prev = current;
+        current = current.next;
+      }
+    }
+
+    return this.head;
+  }
+
   display() {
     let temp = this.head;
 
     while(temp) {
-      console.log(temp.value + ' -> ');
+      console.log(temp.value);
       temp = temp.next;
     }
     console.log("END");
@@ -299,27 +410,16 @@ class LinkedList {
   }
 }
 
-// let ll = new LinkedList();
-
-// ll.insertFirst(3);
-// ll.insertFirst(2);
-// ll.insertFirst(8);
-// ll.insertFirst(17);
-// ll.insertLast(99);
-// ll.insertLast(99);
-// ll.insertAt(100, 3);
-// // ll.removeAt(2)
-// ll.display()
-// ll.insertRec(88, 2);
-// ll.display()
-// ll.removeDups();
-// ll.display()
-
 let list = new LinkedList();
 
-list.insertLast(5);
-list.insertLast(3);
 list.insertLast(1);
-list.display();
-list.reverseInPlace();
+list.insertLast(2);
+list.insertLast(3);
+list.insertLast(4);
+list.insertLast(5);
+list.insertLast(6);
+list.insertLast(7);
+list.insertLast(8);
+list.insertLast(9);
+list.reverseAlternateKGroup(3);
 list.display();

@@ -40,27 +40,30 @@ class LL {
   }
 
   reverseKGroup(head, k) {
-    if (k <= 1 || head === null) {
-      return head;
+    if (k <= 1 || this.head === null) {
+      return this.head;
     }
-
-    let current = head;
+    let current = this.head;
     let prev = null;
     while (true) {
       // check if there are at least k nodes left
       let temp = current;
       for (let i = 0; i < k; i++) {
-          if (temp === null) {
-              return head
+          if (temp) {
+              temp = temp.next;
+          } else {
+            return this.head
           }
-          temp = temp.next;
       }
 
       let last = prev;
       let newEnd = current;
 
       // reverse between left and right
-      let next = current.next;
+      let next = null;
+      if (next === null) {
+        next = current.next;
+      }
       for (let i = 0; current && i < k ; i++) {
         current.next = prev;
         prev = current;
@@ -74,10 +77,12 @@ class LL {
       if (last !== null) {
         last.next = prev;
       } else {
-        head = prev;
+        this.head = prev;
       }
 
-      newEnd.next = current;
+      if (newEnd) {
+        newEnd.next = current;
+      }
 
       if (current === null) {
         break;
@@ -86,7 +91,7 @@ class LL {
       prev = newEnd;
     }
 
-    return head;
+    return this.head;
   };
 
 
@@ -108,5 +113,5 @@ list.insertLast(2)
 list.insertLast(3)
 list.insertLast(4)
 list.insertLast(5)
+list.reverseKGroup(list, 2)
 list.display()
-list.reverseKGroup(list, 3)
