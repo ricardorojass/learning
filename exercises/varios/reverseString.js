@@ -1,11 +1,18 @@
+// two pointers
+// time complex: O(n)
 const reverseString = function(str) {
-  let i = str.length - 1;
-  let newStr = '';
-  while (i >= 0) {
-    newStr += str[i]
-    i--;
+  let newStr = str.split('');
+  let start = 0;
+  let end = str.length - 1;
+  while (start <= end) {
+    // swap str
+    const temp = newStr[start];
+    newStr[start] = newStr[end]
+    newStr[end] = temp;
+    start++;
+    end--;
   }
-  return newStr;
+  return newStr.join('');
 }
 
 
