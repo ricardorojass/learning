@@ -32,23 +32,36 @@ iterate numbers
   fill the rest in with 0
  */
 
-  var moveZeroes = function(nums) {
-    let temp = [];
-    let zeroCount = 0
+var moveZeroes = function(nums) {
+  let temp = [];
+  let zeroCount = 0
 
-    for (let i = 0; i < nums.length; i++) {
-      if (nums[i] !== 0) {
-        temp.push(nums[i]);
-        zeroCount++;
-      }
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      temp.push(nums[i]);
+      zeroCount++;
     }
+  }
 
-    for (let i = 0; i < zeroCount; i++) {
-      temp.push(0);
+  for (let i = 0; i < zeroCount; i++) {
+    temp.push(0);
+  }
+
+  return temp;
+};
+
+var moveZeroesRef = function(nums) {
+  let insertPos = 0
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      nums[insertPos++] = nums[i];
     }
+  }
+  for (let j = insertPos; j < nums.length; j++) {
+    nums[j] = 0;
+  }
+  return nums;
+}
 
-    return temp;
-  };
 
-
-console.log(moveZeroes([0,1,0,3,12]))
+console.log(moveZeroesRef([0,1,0,3,12]))
