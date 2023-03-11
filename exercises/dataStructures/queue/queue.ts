@@ -10,7 +10,7 @@ interface MyNodeInterface<T> {
 }
 
 interface MyQueueInterface<T> {
-  queue(data: T): void
+  enqueue(data: T): void
   dequeue(): T
   peek(): T
   size(): number
@@ -31,7 +31,7 @@ class MyQueue<T> implements MyQueueInterface<T> {
   // private last: MyNodeInterface<T>
   private head: MyNodeInterface<T>
 
-  queue(data: T): void {
+  enqueue(data: T): void {
     if (!this.head) {
       this.head = new MyNodeClass<T>(data)
     } else {
@@ -74,9 +74,9 @@ class MyQueue<T> implements MyQueueInterface<T> {
 
 const queue = new MyQueue<number>()
 
-queue.queue(1)
-queue.queue(2)
-queue.queue(3)
+queue.enqueue(1)
+queue.enqueue(2)
+queue.enqueue(3)
 
 console.log(
   queue.peek() === 1

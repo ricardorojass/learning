@@ -14,7 +14,7 @@
   },
   "include": [
       "./**/*.ts*"
-  ],
+, "leetcode/_21.js", "leetcode/_21.js"  ],
   "exclude": [
     "node_modules",
     "_old",

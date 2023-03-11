@@ -55,24 +55,18 @@ class MyStack<T> implements StackInterface<T> {
     }
     return counter
   }
-}
+
+  display(): void {
+    let stack = this.top;
+    while (stack) {
+      console.log(stack.data);
+      stack = stack.next;
+    }
+  }
+ }
 
 const stack = new MyStack<string>()
 stack.push('Yellow')
 stack.push('Blue')
 stack.push('Red')
-
-console.log(
-  stack.size() === 3
-)
-console.log(
-  stack.peek() === 'Red'
-)
-
-console.log(
-  stack.pop() === 'Red'
-)
-
-console.log(
-  stack.peek() === 'Blue'
-)
+stack.display();
