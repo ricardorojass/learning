@@ -1,3 +1,4 @@
+# O(n log n) time | O(1) space
 def non_constructible_change(coins)
   coins.sort()
 
