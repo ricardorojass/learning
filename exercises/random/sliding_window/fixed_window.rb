@@ -12,8 +12,7 @@ def find_best_subarray(nums, k)
   end
 
   ans = curr
-  i = k
-  while i < nums.length
+  (k...nums.length).each do |i|
     curr += nums[i] - nums[i - k]
     ans = [ans, curr].max
     i += 1
@@ -22,4 +21,4 @@ def find_best_subarray(nums, k)
   ans
 end
 
-p find_best_subarray([3,-1,4,12,-8,5,6], 4)
+p find_best_subarray([3,-1,4,12,-8,5,6], 4) == 18
