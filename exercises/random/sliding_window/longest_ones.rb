@@ -21,4 +21,6 @@ def longest_ones(nums, k)
   return ans
 end
 
+nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1]
+k = 3
 p longest_ones([1,1,1,0,0,0,1,1,1,1,0], 2)
