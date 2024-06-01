@@ -1,6 +1,6 @@
 # Learning
 
-- [Programming *](/programming/)
+- [Programming](/programming/)
   - [Databases](/programming/databases/)
   - [Algorithms](/programming/algorithms/)
   - [Data Structures](/programming/data-structures/)
