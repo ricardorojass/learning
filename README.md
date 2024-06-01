@@ -1,9 +1,9 @@
-# Algoritmos ![Language](https://img.shields.io/badge/language-JavaScript%20%2F%20TypeScript-blue)
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-## Exercises
+- [Algoritmos *](#algoritmos-)
+  - [Exercises](#exercises)
+  - [Databases](#databases)
 
-- [Recursion](exercises/recursion/README.md)
-- [Leetcode](exercises/leetcode/README.md)
-- [Data Structures](exercises/dataStructures/README.md)
-- [System Design](exercises/systemDesign/README.md)
-- [Random](exercises/random)
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
