@@ -6,4 +6,12 @@
   - [Exercises](#exercises)
   - [Databases](#databases)
 
+## Databases
+
+### Books
+
+- [Practical SQL Book][https://practicalsql.com/]
+  - [SQL Commamds](/databases/sql_commands.md)
+
+
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
